@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* GyaanMitra Design System - Educational Platform Theme */
+    
+    /* Core Brand Colors */
+    --primary: 225 100% 59%; /* Deep Blue - Wisdom & Trust */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 225 95% 70%;
+    --primary-dark: 225 100% 45%;
+    
+    --secondary: 164 76% 64%; /* Aqua Green - Growth & Balance */
+    --secondary-foreground: 225 100% 20%;
+    
+    --accent: 48 100% 50%; /* Bright Yellow - Energy & Achievement */
+    --accent-foreground: 225 100% 20%;
+    
+    /* Background & Surface */
+    --background: 210 40% 98%; /* Soft off-white */
+    --foreground: 225 30% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 225 30% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 30% 15%;
+    
+    /* UI Elements */
+    --muted: 210 40% 94%;
+    --muted-foreground: 225 15% 45%;
+    
+    --border: 210 30% 88%;
+    --input: 210 30% 88%;
+    --ring: 225 100% 59%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Success & Info */
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    
+    /* Gamification Colors */
+    --xp-gold: 45 100% 55%;
+    --xp-silver: 0 0% 75%;
+    --xp-bronze: 25 75% 47%;
+    
+    /* Special Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(225 100% 59%) 0%, hsl(225 100% 45%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(164 76% 64%) 0%, hsl(142 76% 45%) 100%);
+    --gradient-energy: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(35 100% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(225 100% 59%) 0%, hsl(164 76% 64%) 50%, hsl(48 100% 50%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-card: 0 4px 12px -2px rgb(46 91 255 / 0.08);
+    --shadow-elevated: 0 10px 30px -5px rgb(46 91 255 / 0.15);
+    --shadow-glow: 0 0 30px rgb(46 91 255 / 0.3);
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 225 30% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 225 25% 12%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 225 25% 12%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 225 100% 65%;
+    --primary-foreground: 225 100% 10%;
+    
+    --secondary: 164 76% 50%;
+    --secondary-foreground: 164 76% 10%;
+    
+    --accent: 48 100% 55%;
+    --accent-foreground: 48 100% 10%;
+    
+    --muted: 225 20% 18%;
+    --muted-foreground: 210 20% 65%;
+    
+    --border: 225 20% 20%;
+    --input: 225 20% 20%;
+    --ring: 225 100% 65%;
+    
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --shadow-card: 0 4px 12px -2px rgb(0 0 0 / 0.4);
+    --shadow-elevated: 0 10px 30px -5px rgb(0 0 0 / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(46, 91, 255, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(46, 91, 255, 0.6); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: var(--radius);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: var(--radius);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
